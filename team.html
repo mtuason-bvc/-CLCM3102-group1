@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Company Website</title>
-    <link rel="stylesheet" href="./css/careers.css">
+    <link rel="stylesheet" href="./css/team.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" href="./images/image.png">
@@ -38,42 +38,105 @@
     </header>
 
     <section id="home" class="home">
-        <h2>Drop your Inquiries</h2>
+        <!-- <h2> </h2> -->
     </section>
 
-    <section id="career-heading" class="career-heading">
+    <!-- <section id="career-heading" class="career-heading">
         <h1 class="heading">Inquiry</h1>
         <p>Easily submit your inquiries for quick responses from our team.</p>
-    </section>
+    </section> -->
     
-    <div class="career">
-        <div class="career-form">
-            <form action="./careers.php" method="POST" enctype="multipart/form-data" class="career-form-container">
-                <input type="text" name="name" placeholder="Name" class="career-form-txt" required>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="Contact number" maxlength="10" class="career-form-phone">
-                <input type="email" name="email" placeholder="Email" class="career-form-email" required>
-                <textarea placeholder="Other Details" name="details" class="career-form-txtarea" required></textarea>
-                
-                <div class="form-group">
-                    <label for="date">Date:</label>
-                    <input type="date" name="date" class="career-form-date form-control" required>
-                </div>
+    <!-- team members -->
 
-                <div class="form-group">
-                    <label for="time">Time:</label>
-                    <input type="time" name="time" class="career-form-time form-control" required>
-                </div>
-
-                <div class="file">
-                    <h2 class="name">Upload your file here for faster cloud support!</h2>
-                    <input class="upload" type="file" name="fileToUpload" accept=".doc,.docx,.pdf"><br><br><br>
-                </div>
-                
-                <input type="submit" value="Submit" name="submit" class="career-form-btn">
-            </form>
+<!-- Team Section -->
+<section class="team-section text-center">
+  <div class="container">
+    <h2 class="mb-4">Meet Our Team</h2>
+    
+    <div class="row gy-4">
+      <!-- Team Member 1 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="team-member-card p-3">
+          <div class="team-member text-center">
+            <img src="./images/testimonial-1.jpg" alt="Member 1" class="mb-3">
+            <h5>John Doe</h5>
+            <p class="text-muted">Lead Developer</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
         </div>
+      </div>
+      <!-- Team Member 2 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="team-member-card p-3">
+          <div class="team-member text-center">
+            <img src="./images/testimonial-2.jpg" alt="Member 2" class="mb-3">
+            <h5>Jane Smith</h5>
+            <p class="text-muted">Project Manager</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 3 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="team-member-card p-3">
+          <div class="team-member text-center">
+            <img src="./images/testimonial-3.jpg" alt="Member 3" class="mb-3">
+            <h5>Emily Brown</h5>
+            <p class="text-muted">UX Designer</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 4 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="team-member-card p-3">
+          <div class="team-member text-center">
+            <img src="./images/testimonial-4.jpg" alt="Member 4" class="mb-3">
+            <h5>Michael Green</h5>
+            <p class="text-muted">Marketing Specialist</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 5 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="team-member-card p-3">
+          <div class="team-member text-center">
+            <img src="./images/testimonial-5.jpg" alt="Member 5" class="mb-3">
+            <h5>Susan Clark</h5>
+            <p class="text-muted">Data Analyst</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
+
+
+    <!-- team members -->
+    
     <div class="footer">
         <div class="footer-top">
             <div class="container">

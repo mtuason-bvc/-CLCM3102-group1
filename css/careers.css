@@ -221,17 +221,42 @@ body{
 		{
             margin-left: 1rem;
 			width: 100%;
-            margin-top: -2.5rem;
+            margin-top: -3.5rem;
 			height: 40px;
 			color: #000;
 			margin-bottom: 5rem;
 			padding: 15px;
 		}
+        input.career-form-date.form-control{
+            width: 97%;
+        }
+
+        input.career-form-time.form-control{
+            width: 97%;
+        }
+        label{
+        margin-left: 8px;
+        }
+        input.career-form-date.form-control{
+            margin-left: 8px;
+        }
+        input.career-form-time.form-control{
+            margin-left: 8px;
+        }
+        .name{
+            font-size: 1.5rem;
+            margin-top: 7px;
+            margin-left: -6px;
+        }
         .upload
         {
             margin-top: .75rem;
             font-size: 1.5rem;
             margin-bottom: 1rem;
+        }
+
+        input.upload{
+        margin-left: -5px;
         }
 		.career-form-btn
 		{
@@ -660,4 +685,44 @@ body{
         color: #aaa;
         font-size: 1.5rem;
     }
+}
+
+.career-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.career-form-date,
+.career-form-time {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.career-form-date:focus,
+.career-form-time:focus {
+    outline: none;
+    border-color: #007bff; /* Change this color to match your theme */
+}
+
+.career-form-btn {
+    background-color: #007bff; /* Change button color to match your theme */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.career-form-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }

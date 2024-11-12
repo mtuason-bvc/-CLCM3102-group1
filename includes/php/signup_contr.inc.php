@@ -38,3 +38,16 @@ function isUserAlreadyTaken(object $pdo, string $username){
         return false;
     }
 }
+
+function isEmailAlreadyRegistered(object $pdo, string $email){
+    if (getEmail($pdo, $email)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function insertUser(object $pdo, string $username, string $email, string $password){
+    setUser($pdo,  $username,  $email,  $password);
+}

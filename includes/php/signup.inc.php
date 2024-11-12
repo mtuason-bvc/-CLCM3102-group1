@@ -12,24 +12,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         require_once 'signup_contr.inc.php';
 
         //ERROR handling
-
+        $errors = [];
         if (isEmailInvalid($email)){
-
+            $errors["invalidEmail"] = "Email entered is invalid.";
         }
         if (isInputEmpty($username, $email, $password, $passwordAgain)){
-
+            $errors["inputEmpty"] = "Fill in all entries please.";
         }
         if (isUserAlreadyTaken($pdo, $username)){
-
+            $errors["userTaken"] = "That username is already taken.";
         }
-<<<<<<< HEAD
-        //https://youtu.be/Ojk70Ag8Ofs?si=TNvAJ-RFp3afX9FH&t=2731
-=======
+        if (isEmailAlreadyRegistered($pdo, $email)){
+            $errors["emailRegistered"] = "That email is already registered.";
+        }        
+        if (isPasswordNotSame($password, $passwordAgain)){
+            $errors["passwordNotSame"] = "Passwords are not the same.";
+        }
         
->>>>>>> e4b3f67a53da9321fc85541d63282c513e2dcdcb
-
+        require_once 'config_session.inc.php';
+        if ($errors){
+            $_SESSION["signupErrors"] = $errors;
+            header("Location: ../../signup.html");
+            die();
+        }
     } catch (PDOException $e) {
-        //throw $th;
+        die("Query failed: " . $e->getMessage());
     }
 }
 else{

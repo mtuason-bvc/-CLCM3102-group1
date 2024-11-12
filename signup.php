@@ -1,3 +1,8 @@
+<?php
+    require_once 'includes/php/config_session.inc.php';
+    require_once 'includes/php/signup_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,6 +77,11 @@
                                     </div>
                                     <button class="btn btn-lg px-5" type="submit">Submit</button>
                                 </form>
+
+                                <?php
+                                    checkSignupErrors();
+
+                                ?>
                             </div>
 
                         </div>

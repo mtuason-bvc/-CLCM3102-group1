@@ -22,7 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         if (isUserAlreadyTaken($pdo, $username)){
 
         }
+<<<<<<< HEAD
         //https://youtu.be/Ojk70Ag8Ofs?si=TNvAJ-RFp3afX9FH&t=2731
+=======
+        
+>>>>>>> e4b3f67a53da9321fc85541d63282c513e2dcdcb
 
     } catch (PDOException $e) {
         //throw $th;

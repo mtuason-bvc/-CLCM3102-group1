@@ -60,3 +60,6 @@
         border-color: #ffffff;
     }
     
+    .form-control:focus {
+        color: #ffffff;
+    }

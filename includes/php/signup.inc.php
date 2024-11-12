@@ -32,7 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         require_once 'config_session.inc.php';
         if ($errors){
             $_SESSION["signupErrors"] = $errors;
-            header("Location: ../../signup.html");
+            header("Location: ../../signup.php");
+            die();
+        }
+        else{
+            insertUser($pdo, $username, $email, $password);
+            header("Location: ../../signup.php?signup=success");
+            $pdo = null;
+            $stmt = null;
             die();
         }
     } catch (PDOException $e) {
@@ -40,6 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     }
 }
 else{
-    header("Location: ../../signup.html");
+    header("Location: ../../signup.PHP");
     die();
 }

@@ -1,8 +1,3 @@
-<?php
-    require_once 'includes/php/config_session.inc.php';
-    require_once 'includes/php/signup_view.inc.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +18,7 @@
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/login.css">
-    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/main.js"></script>
 
 
 </head>
@@ -31,7 +26,7 @@
 <body>
 
     <header class="header">
-        <a href="index.html" class="logo"><img src="./images/logo_cloudtech.png" alt=""></a>
+        <a href="#" class="logo"><img src="./images/logo_cloudtech.png" alt=""></a>
         <div class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
@@ -54,39 +49,29 @@
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-4 text-center">
                             <div class="mb-md-4 mt-md-3 pb-3">
-                                <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
-                                <p class="text-white-50 mb-4">Please enter sign up details</p>
+                                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                <p class="text-white-50 mb-4">Please enter your login and password</p>
 
-                                <form action="includes/php/signup.inc.php" method="post">
+                                <form action="includes/php/login.inc.php" method="post">
                                     <div class="form-group mb-4">
-                                        <input type="text" name="typeUsernameX" id="typeUsernameX" class="form-control custom-input"
+                                        <input type="text" id="typeUsernameX" class="form-control custom-input"
                                             placeholder="Username" />
                                     </div>
-                                    <div class="form-group mb-4">
-                                        <input type="email" name="typeEmailX" id="typeEmailX" class="form-control custom-input"
-                                            placeholder="Email" />
-                                    </div>
 
                                     <div class="form-group mb-4">
-                                        <input type="password" name="typePasswordX" id="typePasswordX" class="form-control custom-input"
+                                        <input type="password" id="typePasswordX" class="form-control custom-input"
                                             placeholder="Password" />
                                     </div>
-                                    <div class="form-group mb-4">
-                                        <input type="password" name="typePasswordAgainX" id="typePasswordAgainX" class="form-control custom-input"
-                                            placeholder="Password Again" />
-                                    </div>
-                                    <button class="btn btn-lg px-5" type="submit">Submit</button>
+
+                                    <!-- <p class="small mb-4"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
+
+                                    <button class="btn btn-lg px-5" type="submit">Login</button>
                                 </form>
-
-
                             </div>
+
                             <div>
-                                <p class="mb-0">Already have an account? <a href="login.php"
-                                        class="text-white-50 fw-bold">Login</a></p>
-                            
-                                <?php
-                                    checkSignupErrors();
-                                ?>
+                                <p class="mb-0">Don't have an account? <a href="signup.php"
+                                        class="text-white-50 fw-bold">Sign Up</a></p>
                             </div>
                         </div>
                     </div>

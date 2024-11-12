@@ -14,4 +14,8 @@
 
             unset($_SESSION["signupErrors"]);
         }
+        else if(isset($_GET["signup"]) && ($_GET["signup"] === "success")){
+            echo("<br>");
+            echo("<p>Login is Successful!</p>");
+        }
     }

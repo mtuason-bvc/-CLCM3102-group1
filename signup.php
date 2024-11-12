@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -43,7 +43,7 @@
                 <li><a href="careers.html">inquiry</a></li>
                 <li><a href="index.html#contact">contact</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
-                <li><a href="login.html">login</a></li>
+                <li><a href="login.php">login</a></li>
             </ul>
         </nav>
     </header>

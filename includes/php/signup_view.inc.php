@@ -9,13 +9,13 @@
 
             echo("<br>");
             foreach ($errors as $error) {
-                echo("<p>". $error ."</p>");
+                echo('<h4 class="form-error">'. $error ."</h4>");
             }
 
             unset($_SESSION["signupErrors"]);
         }
         else if(isset($_GET["signup"]) && ($_GET["signup"] === "success")){
             echo("<br>");
-            echo("<p>Login is Successful!</p>");
+            echo('<h4 class="form-success">Sign up is Successful!</h4>');
         }
     }

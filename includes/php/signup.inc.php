@@ -47,6 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     }
 }
 else{
-    header("Location: ../../signup.PHP");
+    header("Location: ../../signup.php");
     die();
 }

@@ -1,3 +1,7 @@
+<?php
+    require_once 'includes/php/config_session.inc.php';
+    require_once 'includes/php/login_view.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,7 @@
                 <li><a href="careers.html">inquiry</a></li>
                 <li><a href="index.html#contact">contact</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
-                <li><a href="login.html">login</a></li>
+                <li><a href="login.php">login</a></li>
             </ul>
         </nav>
     </header>
@@ -54,12 +58,12 @@
 
                                 <form action="includes/php/login.inc.php" method="post">
                                     <div class="form-group mb-4">
-                                        <input type="text" id="typeUsernameX" class="form-control custom-input"
+                                        <input type="text" id="typeUsernameX" name="typeUsernameX" class="form-control custom-input"
                                             placeholder="Username" />
                                     </div>
 
                                     <div class="form-group mb-4">
-                                        <input type="password" id="typePasswordX" class="form-control custom-input"
+                                        <input type="password" id="typePasswordX" name="typePasswordX" class="form-control custom-input"
                                             placeholder="Password" />
                                     </div>
 

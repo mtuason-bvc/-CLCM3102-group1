@@ -63,3 +63,10 @@
     .form-control:focus {
         color: #ffffff;
     }
+
+    .form-error{
+        color: red;
+    }
+    .form-success{
+        color: green;
+    }

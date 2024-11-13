@@ -22,7 +22,7 @@
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/login.css">
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
 
 
 </head>
@@ -30,7 +30,7 @@
 <body>
 
     <header class="header">
-        <a href="#" class="logo"><img src="./images/logo_cloudtech.png" alt=""></a>
+        <a href="index.html" class="logo"><img src="./images/logo_cloudtech.png" alt=""></a>
         <div class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
@@ -72,10 +72,14 @@
                                     <button class="btn btn-lg px-5" type="submit">Login</button>
                                 </form>
                             </div>
-
                             <div>
                                 <p class="mb-0">Don't have an account? <a href="signup.php"
                                         class="text-white-50 fw-bold">Sign Up</a></p>
+                            
+
+                            <?php 
+                                checkLoginErrors();
+                            ?>
                             </div>
                         </div>
                     </div>

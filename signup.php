@@ -2,7 +2,6 @@
     require_once 'includes/php/config_session.inc.php';
     require_once 'includes/php/signup_view.inc.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 function isInputEmpty(string $username,string $password){
-    if (empty($username)  || empty($password)){
+    if (empty($username) || empty($password)){
         return true;
     }
     else{
@@ -11,8 +11,8 @@ function isInputEmpty(string $username,string $password){
     }
 }
 
-function isUserNotRegistered(object $pdo, string $username){
-    if (!getUsername($pdo,  $username)){
+function isUserNotRegistered(bool|array $result){
+    if (!$result){
         return true;
     }
     else{
@@ -21,5 +21,10 @@ function isUserNotRegistered(object $pdo, string $username){
 }
 
 function isPasswordIncorrect(string $password, string $hashedPwd){
-    
+    if (!password_verify($password, $hashedPwd)){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

@@ -4,8 +4,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     
     $username = $_POST["typeUsernameX"];
     $password = $_POST["typePasswordX"];
-    echo("<br>");
-    echo("<p> ". $username . " ".  $password . " </p>");
     try {
         require_once 'dbh.inc.php';
         require_once 'login_model.inc.php';
@@ -17,42 +15,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             $errors["inputEmpty"] = "Fill in all entries please.";
         }
         
-        $result = getUsername($pdo, $username);
-        
-        echo("<br>");
-        echo("<p>". print_r($result) . "</p>");
-        
-        if (isUserNotRegistered($result)){
-            $errors["incorrectLogin"] = "Incorrect username and/or password";
+        $result = getUser($pdo, $username);
+
+        echo ("<br><p>Result from pdo is typeof: ".gettype($result)."</p>");
+        echo ("<br><p>Content of Results: ".$result."</p>");
+        $isUserValid = true;
+        if (isUsernameWrong($result)){
+            $errors["incorrectLogin"] = "Incorrect username/password.";
+            $isUserValid = false;
         }
 
-        if (isPasswordIncorrect($password, $result['pwd']) && !isUserNotRegistered($result)){
-            $errors["incorrectLogin"] = "Incorrect username and/or password";
+        if ($isUserValid && isPasswordWrong($password, $result['pwd'])){
+            $errors["incorrectLogin"] = "Incorrect username/password.";
         }
-
-
-
         
-        echo("<br>");
-        echo("<p>". print_r($errors) . "</p>");
+
         require_once 'config_session.inc.php';
         if ($errors){
             $_SESSION["loginErrors"] = $errors;
             header("Location: ../../login.php");
             die();
         }
-        else{
-            $newSessionId = session_create_id();
-            $sessionId = $newSessionId . "_" . $result['id'];
-            sessionId($sessionId);
-            $_SESSION["last_Regeneration"] = time();
-            $_SESSION["userId"] = $result['id'];
-            $_SESSION["userUsername"] = htmlspecialchars($result['username']);
-            header("Location: ../../login.php?login=success");
-            $pdo = null;
-            $stmt = null;
-            
-        }
+        
+        $newSessionId = session_create_id();
+        $sessionId = $newSessionId . "_" . $result['id'];
+        session_id($sessionId);
+        $_SESSION["userId"] = $result['id'];
+        $_SESSION["userUsername"] = htmlspecialchars($result['username']);
+        $_SESSION["last_Regeneration"] = time();
+        header("Location: ../../login.php?login=success");
+        $pdo = null;
+        $stmt = null;
+        die();
+        
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }

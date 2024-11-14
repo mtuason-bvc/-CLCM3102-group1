@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-function getUsername(object $pdo, string $username){
-    $query = "SELECT * FROM users WHERE username = :username LIMIT 1;";
+function getUser(object $pdo, string $username){
+    $query = "SELECT * FROM users WHERE username = :username;";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":username", $username);
     $stmt->execute();

@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-function isInputEmpty(string $username,string $password){
-    if (empty($username) || empty($password)){
+function isInputEmpty(string $username, string $password)
+{
+    if (empty($username) || empty($password)) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function isUserNotRegistered(bool|array $result){
-    if (!$result){
+function isUsernameWrong(bool|array $result)
+{
+    if (!$result) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-function isPasswordIncorrect(string $password, string $hashedPwd){
-    if (!password_verify($password, $hashedPwd)){
+function isPasswordWrong(string $password, string $hashedPwd)
+{
+    if (!password_verify($password, $hashedPwd)) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }

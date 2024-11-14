@@ -13,35 +13,25 @@ session_set_cookie_params([
 
 session_start();
 
-
-if (!isset($_SESSION["last_Regeneration"])) {
-    regenerateSessionId();
-} else {
-    $interval = 60 * 30;
-    if ((time() - $_SESSION["last_Regeneration"]) > $interval) {
+if (isset($_SESSION["userId"])){
+    if (!isset($_SESSION["last_Regeneration"])) {
+        regenerateSessionIdLoggedIn();
+    } else {
+        $interval = 60 * 30;
+        if ((time() - $_SESSION["last_Regeneration"]) > $interval) {
+            regenerateSessionIdLoggedIn();
+        }
+    }
+} else{
+    if (!isset($_SESSION["last_Regeneration"])) {
         regenerateSessionId();
+    } else {
+        $interval = 60 * 30;
+        if ((time() - $_SESSION["last_Regeneration"]) > $interval) {
+            regenerateSessionId();
+        }
     }
 }
-
-// if (isset($_SESSION["userId"])){
-//     if (!isset($_SESSION["last_Regeneration"])) {
-//         regenerateSessionIdLoggedIn();
-//     } else {
-//         $interval = 60 * 30;
-//         if ((time() - $_SESSION["last_Regeneration"]) > $interval) {
-//             regenerateSessionIdLoggedIn();
-//         }
-//     }
-// } else{
-//     if (!isset($_SESSION["last_Regeneration"])) {
-//         regenerateSessionId();
-//     } else {
-//         $interval = 60 * 30;
-//         if ((time() - $_SESSION["last_Regeneration"]) > $interval) {
-//             regenerateSessionId();
-//         }
-//     }
-// }
 
 
 function regenerateSessionId()
@@ -52,10 +42,11 @@ function regenerateSessionId()
 
 function regenerateSessionIdLoggedIn()
 {
+    session_regenerate_id(true);
     $userId = $_SESSION["userId"];
     $newSessionId = session_create_id();
     $sessionId = $newSessionId . "_" . $userId;
-    sessionId($sessionId);
+    session_id($sessionId);
 
     $_SESSION["last_Regeneration"] = time();
 }

@@ -1,6 +1,7 @@
 <?php
     require_once 'includes/php/config_session.inc.php';
     require_once 'includes/php/signup_view.inc.php';
+    checkIfLoggedInSignupPage();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +85,9 @@
                                         class="text-white-50 fw-bold">Login</a></p>
                             
                                 <?php
+
                                     checkSignupErrors();
+
                                 ?>
                             </div>
                         </div>

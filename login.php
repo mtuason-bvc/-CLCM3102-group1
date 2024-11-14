@@ -1,6 +1,7 @@
 <?php
-    require_once 'includes/php/config_session.inc.php';
-    require_once 'includes/php/login_view.inc.php';
+require_once 'includes/php/config_session.inc.php';
+require_once 'includes/php/login_view.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,32 +54,50 @@
                     <div class="card bg-dark text-white" style="border-radius: 1rem;">
                         <div class="card-body p-4 text-center">
                             <div class="mb-md-4 mt-md-3 pb-3">
-                                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                                <p class="text-white-50 mb-4">Please enter your login and password</p>
-
-                                <form action="includes/php/login.inc.php" method="post">
-                                    <div class="form-group mb-4">
-                                        <input type="text" id="typeUsernameX" name="typeUsernameX" class="form-control custom-input"
-                                            placeholder="Username" />
-                                    </div>
-
-                                    <div class="form-group mb-4">
-                                        <input type="password" id="typePasswordX" name="typePasswordX" class="form-control custom-input"
-                                            placeholder="Password" />
-                                    </div>
-
-                                    <!-- <p class="small mb-4"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
-
-                                    <button class="btn btn-lg px-5" type="submit">Login</button>
+                                <?php
+                                    if (isset($_SESSION["userId"])) {
+                                        $userId = $_SESSION["userId"];
+                                        $userName = $_SESSION["userUsername"];
+                                        echo ("<br>");
+                                        echo ('<h4 class="form-success">Current logged in user: ' . $userName . '</h4>');
+                                        echo ("<br>"); 
+                                ?>
+                                <form action="includes/php/logout.inc.php" method="post">
+                                    <button class="btn btn-lg px-5" type="submit">Logout</button>
                                 </form>
+                                <h4><a href="dashboard.php">Go to dashboard</a></h4>
+                                <?php
+                                    } else { 
+                                ?>
+                                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                    <p class="text-white-50 mb-4">Please enter your login and password</p>
+
+                                    <form action="includes/php/login.inc.php" method="post">
+                                        <div class="form-group mb-4">
+                                            <input type="text" id="typeUsernameX" name="typeUsernameX" class="form-control custom-input"
+                                                placeholder="Username" />
+                                        </div>
+
+                                        <div class="form-group mb-4">
+                                            <input type="password" id="typePasswordX" name="typePasswordX" class="form-control custom-input"
+                                                placeholder="Password" />
+                                        </div>
+
+                                        <!-- <p class="small mb-4"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
+
+                                        <button class="btn btn-lg px-5" type="submit">Login</button>
+                                    </form>
+
                             </div>
                             <div>
                                 <p class="mb-0">Don't have an account? <a href="signup.php"
                                         class="text-white-50 fw-bold">Sign Up</a></p>
-                            
 
-                            <?php 
-                                checkLoginErrors();
+                            <?php
+                                }
+                            ?>
+                            <?php
+                            checkLoginErrors();
                             ?>
                             </div>
                         </div>

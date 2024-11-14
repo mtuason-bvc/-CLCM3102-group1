@@ -2,6 +2,14 @@
 
     declare(strict_types=1);
 
+    function checkIfLoggedInSignupPage()
+    {
+        if (isset($_SESSION["userId"])) {
+            header("Location: login.php");
+        } 
+    
+    }
+
     function checkSignupErrors(){
         if (isset($_SESSION["signupErrors"])){
             $errors = $_SESSION["signupErrors"];

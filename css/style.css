@@ -536,6 +536,11 @@ body{
 .testimonials .owl-dot.active {
     background-color: #4F84C4;
 }
+.testimonial-rating {
+    margin-top: 10px;
+    color: #ffc107; /* Gold color for stars */
+    font-size: 18px;
+}
 
 @media (max-width: 575px) {
     .testimonials .testimonial-text {

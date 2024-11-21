@@ -27,6 +27,38 @@ checkIfLoggedIn();
     <form action="includes/php/logout.inc.php" method="post">
         <button class="btn btn-lg px-5" type="submit">Logout</button>
     </form>
+
+    <form>
+        <?php
+            require_once 'includes/php/dashboard.inc.php';
+            loadServicesDropdownMenu();
+        ?>
+    </form>
+    <!-- <form action="includes/php/transaction.inc.php" method="post">
+    <div class="form-group mb-4">
+            <label name="typeUsernameX" id="typeUsernameX" class="form-control custom-input"
+                placeholder="Username" />
+        </div>
+        <div class="form-group mb-4">
+            <input type="text" name="typeUsernameX" id="typeUsernameX" class="form-control custom-input"
+                placeholder="Username" />
+        </div>
+        <div class="form-group mb-4">
+            <input type="email" name="typeEmailX" id="typeEmailX" class="form-control custom-input"
+                placeholder="Email" />
+        </div>
+
+        <div class="form-group mb-4">
+            <input type="password" name="typePasswordX" id="typePasswordX" class="form-control custom-input"
+                placeholder="Password" />
+        </div>
+        <div class="form-group mb-4">
+            <input type="password" name="typePasswordAgainX" id="typePasswordAgainX" class="form-control custom-input"
+                placeholder="Password Again" />
+        </div>
+        <button class="btn btn-lg px-5" type="submit">submit</button>
+    </form> -->
+
 </body>
 
 </html>

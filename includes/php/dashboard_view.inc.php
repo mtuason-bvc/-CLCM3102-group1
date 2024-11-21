@@ -32,6 +32,19 @@ function loadServicesDropdownMenu()
         echo ('<br>');
         // $_SESSION['allServices'] = null;
         
+        echo "<table style='border: solid 1px black;'>";
+        echo "<tr><th>Name</th><th>Description</th><th>Category</th><th>Price</th></tr>";
+
+        foreach ($services as $service) {
+            echo '<tr>';
+            echo "<td style='width: 150px; border: 1px solid black;' >".$service['serviceName'].'</td>';
+            echo "<td style='width: 150px; border: 1px solid black;' >".$service['serviceDescription'].'</td>';
+            echo "<td style='width: 150px; border: 1px solid black;' >".$service['serviceCategory'].'</td>';
+            echo "<td style='width: 150px; border: 1px solid black;' >".$service['servicePrice'] . ' ' . $service['serviceCurrency'].'</td>';
+            echo '</tr>';
+        }
+        echo "</table>";
+
         echo ('<select id="service" name="service">');
         foreach ($services as $service) {
             echo (' <option value="' . $service['serviceName'] . '">' . $service['serviceName'] . '</option>');

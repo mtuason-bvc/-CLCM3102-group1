@@ -127,6 +127,84 @@ body{
 }
 
 
+/* Overall Section Styling */
+.our-mission {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+}
+
+/* Section Title */
+.section-title {
+    color: #00264d;
+    font-size: 2.8rem; /* Increased from 2.5rem */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Mission Description */
+.mission-description {
+    font-size: 2rem; /* Increased from 1rem */
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Reasons Grid */
+.reasons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Individual Reason Styling */
+.reason {
+    background-color: #f0f8ff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-icon {
+    font-size: 2.5rem; /* Slightly larger icon size */
+    color: #00bfff;
+    margin-bottom: 10px;
+}
+
+.reason h3 {
+    color: #00264d;
+    font-size: 2.5rem; /* Increased from 1.2rem */
+    margin-bottom: 10px;
+}
+
+.reason p {
+    color: #333;
+    font-size:  2rem; /* Increased from 1rem */
+    line-height: 1.6;
+}
+
+/* Hover Effect */
+.reason:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 
 
 .footer {

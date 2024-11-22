@@ -68,9 +68,9 @@ body{
 }
 
 .home{
-    min-height: 70vh;
+    min-height: 125vh;
     width: 100vw;
-    background-image: url(../images/img3.jpg);
+    background-image: url(../images/Unique\ Team.jpg);
     background-size: cover;
     display: flex;
     align-items: center;

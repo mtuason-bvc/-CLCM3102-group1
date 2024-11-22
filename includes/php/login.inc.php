@@ -16,9 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         }
         
         $result = getUser($pdo, $username);
-
-        echo ("<br><p>Result from pdo is typeof: ".gettype($result)."</p>");
-        echo ("<br><p>Content of Results: ".$result."</p>");
         $isUserValid = true;
         if (isUsernameWrong($result)){
             $errors["incorrectLogin"] = "Incorrect username/password.";

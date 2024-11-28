@@ -31,19 +31,33 @@ function loadServicesDropdownMenu()
         echo ('<label for="service">Choose a Service to avail:</label>');
         echo ('<br>');
         // $_SESSION['allServices'] = null;
+        echo '
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+        ';
+
         
-        echo "<table style='border: solid 1px black;'>";
-        echo "<tr><th>Name</th><th>Description</th><th>Category</th><th>Price</th></tr>";
+        
+        //echo "<table style='border: solid 1px black;'>";
+        //echo "<tr><th>Name</th><th>Description</th><th>Category</th><th>Price</th></tr>";
 
         foreach ($services as $service) {
-            echo '<tr>';
-            echo "<td style='width: 150px; border: 1px solid black;' >".$service['serviceName'].'</td>';
-            echo "<td style='width: 150px; border: 1px solid black;' >".$service['serviceDescription'].'</td>';
-            echo "<td style='width: 150px; border: 1px solid black;' >".$service['serviceCategory'].'</td>';
-            echo "<td style='width: 150px; border: 1px solid black;' >".$service['servicePrice'] . ' ' . $service['serviceCurrency'].'</td>';
-            echo '</tr>';
+            echo '<tr>
+            <th scope="row">'.$service['serviceName'].'</th>
+            <td>'.$service['serviceDescription'].'</td>
+            <td>'.$service['serviceCategory'].'</td>
+            <td>'.$service['servicePrice'] . ' ' . $service['serviceCurrency'].'</td>
+            </tr>';
         }
-        echo "</table>";
+        echo "</tbody></table>";
 
         echo ('<select id="service" name="service">');
         foreach ($services as $service) {

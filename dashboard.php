@@ -28,6 +28,7 @@ checkIfLoggedIn();
         <button class="btn btn-lg px-5" type="submit">Logout</button>
     </form>
 
+    
     <form>
         <?php
             require_once 'includes/php/dashboard.inc.php';

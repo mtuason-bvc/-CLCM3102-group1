@@ -28,6 +28,10 @@ INSERT INTO `services` VALUES
     (3,'Fedora micro server','1gb ram, 1vCPU Fedora Linux','IaaS',5.4500,'CAD','2024-11-21 13:09:00'),
     (4,'Bugs away','CI/CD project vulnerability scanning tool','SaaS',29.9500,'CAD','2024-11-21 13:10:04');
 
+INSERT INTO `services` (serviceName, serviceDescription, serviceCategory, servicePrice, serviceCurrency) VALUES 
+('Rubbery String Pods','Web Application Deployment Service','PaaS',20.49,'CAD');
+
+
 CREATE TABLE payment(
     paymentId INT(11) NOT NULL AUTO_INCREMENT,
     serviceId INT(11) NOT NULL,

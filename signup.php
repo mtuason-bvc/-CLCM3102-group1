@@ -35,15 +35,15 @@
         <div class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
-                <li><a href="index.html#home">home</a></li>
-                <li><a href="index.html#about">about</a></li>
-                <li><a href="index.html#service">services</a></li>
-                <li><a href="index.html#portfolio">portfolio</a></li>
-                <li><a href="index.html#team">team</a></li>
-                <li><a href="careers.html">inquiry</a></li>
-                <li><a href="index.html#contact">contact</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#service">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="careers.html">Inquiry</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="index.html#faq">FAQ</a></li>
-                <li><a href="login.php">login</a></li>
+                <li><a href="login.php">Login</a></li>
             </ul>
         </nav>
     </header>

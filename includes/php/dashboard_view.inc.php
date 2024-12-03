@@ -18,66 +18,51 @@ function checkIfLoggedIn()
 
 function loadServicesDropdownMenu()
 {
-
-    //     <select id="cars" name="cars">
-    //     <option value="volvo">Volvo</option>
-    //     <option value="saab">Saab</option>
-    //     <option value="fiat">Fiat</option>
-    //     <option value="audi">Audi</option>
-    //   </select>
-
     if (isset($_SESSION['allServices'])) {
         $services = $_SESSION['allServices'];
-        echo ('<label for="service">Choose a Service to avail:</label>');
-        echo ('<br>');
-        // $_SESSION['allServices'] = null;
-        echo '
-        <table class="table table-hover">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-        ';
-
-        
-        
-        //echo "<table style='border: solid 1px black;'>";
-        //echo "<tr><th>Name</th><th>Description</th><th>Category</th><th>Price</th></tr>";
-
-        foreach ($services as $service) {
-            echo '<tr>
-            <th scope="row">'.$service['serviceName'].'</th>
-            <td>'.$service['serviceDescription'].'</td>
-            <td>'.$service['serviceCategory'].'</td>
-            <td>'.$service['servicePrice'] . ' ' . $service['serviceCurrency'].'</td>
-            </tr>';
-        }
-        echo "</tbody></table>";
-
+        echo ('<form action="includes/php/transaction.inc.php" method="post">');
         echo ('<select id="service" name="service">');
         foreach ($services as $service) {
             echo (' <option value="' . $service['serviceName'] . '">' . $service['serviceName'] . '</option>');
         }
         echo ('</select>');
+        echo ('<button class="btn btn-lg px-5" type="submit">submit</button>');
+
     }
 }
 
-function populateServiceDetails($serviceName){
+function loadAllServicesAvailable(){
     if (isset($_SESSION['allServices'])) {
-        $services = $_SESSION['allServices'];
-       
-        // $_SESSION['allServices'] = null;
-        
-        foreach ($services as $service) {
-            if ($serviceName == $service['serviceName']){
+        $services = $_SESSION['allServices'];       
 
-            }
+        echo ('<label for="service">Current available Services:</label>');
+        echo ('<br>');
+        echo '
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Service Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        ';
+
+        foreach ($services as $service) {
+        $convertedPrice = number_format((float)$service['servicePrice'], 2, '.', '');
+
+            echo '<tr>
+            <th scope="row">'.$service['serviceName'].'</th>
+            <td>'.$service['serviceDescription'].'</td>
+            <td>'.$service['serviceCategory'].'</td>
+            <td>'.$convertedPrice. ' ' . $service['serviceCurrency'].'</td>
+            <td> <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button> </td>
+            </tr>';
         }
+        echo "</tbody></table>";
         
     }
 }

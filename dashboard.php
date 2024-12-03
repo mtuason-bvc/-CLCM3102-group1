@@ -14,6 +14,7 @@ checkIfLoggedIn();
     <link rel="stylesheet" href="./css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="includes/js/shoppingcart.js" async></script>
     <link rel="icon" href="./images/image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -32,7 +33,10 @@ checkIfLoggedIn();
     <form>
         <?php
             require_once 'includes/php/dashboard.inc.php';
-            loadServicesDropdownMenu();
+            loadAllServicesAvailable();
+            // loadServicesDropdownMenu();
+            $_SESSION['allServices'] = null;
+
         ?>
     </form>
     <!-- <form action="includes/php/transaction.inc.php" method="post">

@@ -14,7 +14,7 @@ checkIfLoggedIn();
     <link rel="stylesheet" href="./css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="includes/js/shoppingcart.js" async></script>
+    <script src="includes/js/shoppingcart.js" ></script>
     <link rel="icon" href="./images/image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -39,30 +39,69 @@ checkIfLoggedIn();
 
         ?>
     </form>
-    <!-- <form action="includes/php/transaction.inc.php" method="post">
-    <div class="form-group mb-4">
-            <label name="typeUsernameX" id="typeUsernameX" class="form-control custom-input"
-                placeholder="Username" />
-        </div>
-        <div class="form-group mb-4">
-            <input type="text" name="typeUsernameX" id="typeUsernameX" class="form-control custom-input"
-                placeholder="Username" />
-        </div>
-        <div class="form-group mb-4">
-            <input type="email" name="typeEmailX" id="typeEmailX" class="form-control custom-input"
-                placeholder="Email" />
-        </div>
+    <section class="container content-section">
+            <h2 class="section-header">CART</h2>
 
-        <div class="form-group mb-4">
-            <input type="password" name="typePasswordX" id="typePasswordX" class="form-control custom-input"
-                placeholder="Password" />
-        </div>
-        <div class="form-group mb-4">
-            <input type="password" name="typePasswordAgainX" id="typePasswordAgainX" class="form-control custom-input"
-                placeholder="Password Again" />
-        </div>
-        <button class="btn btn-lg px-5" type="submit">submit</button>
-    </form> -->
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                <th scope="col">Service Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th></th>
+                </tr>
+                </thead>
+
+                <tr class="cart-row">
+                    <th class="cart-item" scope="row">Linux Galore</th>
+                    <td class="cart-price">28.00 CAD</td>
+                    <td class="cart-qty">
+                        <input class="cart-quantity-input" type="number" value="2">
+                    </td>
+                    <td class="cart-remove">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </td>
+                </tr>
+                <tr class="cart-row">
+                    <th class="cart-item" scope="row">Ubuntu micro server</th>
+                    <td class="cart-price">12.00 CAD</td>
+                    <td class="cart-qty">
+                        <input class="cart-quantity-input" type="number" value="3">
+                    </td>
+                    <td class="cart-remove">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <span class="cart-item-title">T-Shirt</span>
+                    </div>
+                    <span class="cart-price cart-column">$19.99</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                         <span class="cart-item-title">Album 3</span>
+                    </div>
+                    <span class="cart-price cart-column">$9.99</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="2">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+            </div> -->
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$39.97</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
 
 </body>
 

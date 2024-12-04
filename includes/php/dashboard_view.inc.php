@@ -54,15 +54,32 @@ function loadAllServicesAvailable(){
         foreach ($services as $service) {
         $convertedPrice = number_format((float)$service['servicePrice'], 2, '.', '');
 
-            echo '<tr>
+            echo '<tr >
             <th scope="row">'.$service['serviceName'].'</th>
             <td>'.$service['serviceDescription'].'</td>
             <td>'.$service['serviceCategory'].'</td>
             <td>'.$convertedPrice. ' ' . $service['serviceCurrency'].'</td>
-            <td> <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button> </td>
+            <td> <button id="'.$service['serviceId'].'" class="btn btn-primary shop-item-button" type="button" onClick="addToCart(this.id)">ADD TO CART</button> </td>
             </tr>';
         }
         echo "</tbody></table>";
         
     }
+}
+
+function toJson($result){
+    // covert array keys to variables with the extract function
+    extract($result);
+    
+    // create a key value pair
+    $data = array(
+      'id' => $id, // extract function created the $id variable
+      'firstName' => $firstName, // extract function created the $firstName variable
+      'lastName' => $lastName, // extract function created the $lastName variable
+      'phone' => $phone, // extract function created the $phone variable
+      'email' => $email, // extract function created the $email variable
+    );
+  
+    // convert the data array to json
+    return json_encode($data);
 }

@@ -14,7 +14,7 @@ checkIfLoggedIn();
     <link rel="stylesheet" href="./css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="includes/js/shoppingcart.js" ></script>
+    <script src="includes/js/shoppingcart.js" async></script>
     <link rel="icon" href="./images/image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -28,17 +28,33 @@ checkIfLoggedIn();
     <form action="includes/php/logout.inc.php" method="post">
         <button class="btn btn-lg px-5" type="submit">Logout</button>
     </form>
-
-    
-    <form>
         <?php
             require_once 'includes/php/dashboard.inc.php';
             loadAllServicesAvailable();
-            // loadServicesDropdownMenu();
+            $servicesJSON = json_encode($_SESSION['allServices']);
+            
             $_SESSION['allServices'] = null;
 
         ?>
-    </form>
+        <div id="php-data" data-json='<?php echo $servicesJSON; ?>'></div>
+
+        <!-- <label for="service">Current available Services:</label>
+        <br>
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Service Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody id="serviceRowRender">
+        </tbody>
+        </table>
+        </div> -->
+    <form>
     <section class="container content-section">
             <h2 class="section-header">CART</h2>
 
@@ -59,7 +75,7 @@ checkIfLoggedIn();
                         <input class="cart-quantity-input" type="number" value="2">
                     </td>
                     <td class="cart-remove">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
+                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
                     </td>
                 </tr>
                 <tr class="cart-row">
@@ -69,39 +85,17 @@ checkIfLoggedIn();
                         <input class="cart-quantity-input" type="number" value="3">
                     </td>
                     <td class="cart-remove">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
+                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
                     </td>
                 </tr>
             </table>
-
-            <!-- <div class="cart-items">
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <span class="cart-item-title">T-Shirt</span>
-                    </div>
-                    <span class="cart-price cart-column">$19.99</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="1">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                         <span class="cart-item-title">Album 3</span>
-                    </div>
-                    <span class="cart-price cart-column">$9.99</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="2">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
-            </div> -->
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">$39.97</span>
             </div>
             <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
         </section>
+    </form>
 
 </body>
 

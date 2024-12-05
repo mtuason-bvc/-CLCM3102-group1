@@ -8,7 +8,8 @@ function checkIfLoggedIn()
         $userId = $_SESSION["userId"];
         $userName = htmlspecialchars($_SESSION["userUsername"]);
         echo ("<br>");
-        echo ('<h4 class="form-success">Welcome ' . $userName . '</h4>');
+        echo ('<h2 class="form-success">Welcome ' . $userName . '</h2>');
+        echo ('<h4 class="form-success">Userid ' . $userId . '</h4>');
     } else {
         header("Location: login.php");
         die();
@@ -83,3 +84,4 @@ function toJson($result){
     // convert the data array to json
     return json_encode($data);
 }
+

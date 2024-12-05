@@ -29,3 +29,6 @@ if (isset($_SESSION["userId"])) {
         die ("Exception encountered: " . $e->getMessage());
     }
 }
+else{
+    die();
+}

@@ -2,6 +2,7 @@
 require_once 'includes/php/config_session.inc.php';
 require_once 'includes/php/dashboard_view.inc.php';
 
+
 checkIfLoggedIn();
 ?>
 <!DOCTYPE html>
@@ -34,16 +35,21 @@ checkIfLoggedIn();
             $servicesJSON = json_encode($_SESSION['allServices']);
             
             $_SESSION['allServices'] = null;
-
+            if (isset($_SESSION["userId"])) {
+                $userId = $_SESSION["userId"];
+            }
         ?>
 
         <script>
         // Embed JSON as a JavaScript variable
         const phpData = <?php echo $servicesJSON; ?>;
+        const currentLoggedUser = '<?php echo $userName; ?>';
+        const currentLoggedUserId = '<?php echo $userId; ?>';
         console.log(phpData);
+        
         </script>
 
-    <form>
+    <form>   
     <section class="container content-section">
             <h2 class="section-header">CART</h2>
 
@@ -66,7 +72,8 @@ checkIfLoggedIn();
                 <span id="cart-total-price">0.00 CAD</span>
                 </h2>
             </div>
-            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+            <button class="btn btn-primary btn-purchase" type="button" onclick="purchaseCartContents()">PURCHASE</button>
+      
         </section>
     </form>
 

@@ -10,7 +10,7 @@
         if (cartContents.some((item)=> item.serviceId == clickedId)){
             const cartItem = cartContents.find(element=> element.serviceId == clickedId);
             cartItem.quantity++;
-            console.log(cartContents);
+            // console.log(cartContents);
         }
         else{
             const cartItem = phpData.find(element=> element.serviceId == clickedId);
@@ -18,7 +18,7 @@
                 ...cartItem,
                 quantity: 1
             });
-            console.log(cartContents);
+            // console.log(cartContents);
         }
         updateCart();
 
@@ -63,12 +63,14 @@
         let cartItem = cartContents.find(element => element.serviceId == serviceId);
         cartItem.quantity = quantity;
         updateCart();
-        console.log(cartItem);
-        console.log(cartContents);
+        // console.log(cartItem);
+        // console.log(cartContents);
     }
 
     function removeCartItem(serviceId){
-        
+        cartContents = cartContents.filter( cartRow => serviceId != cartRow.serviceId);
+        updateCart();
+        // console.log(cartContents);
     }
 
 

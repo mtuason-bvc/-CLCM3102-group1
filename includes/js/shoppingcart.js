@@ -8,7 +8,9 @@
 
     function addToCart(clickedId){
         if (cartContents.some((item)=> item.serviceId == clickedId)){
-            alert("Service already in cart");
+            const cartItem = cartContents.find(element=> element.serviceId == clickedId);
+            cartItem.quantity++;
+            console.log(cartContents);
         }
         else{
             const cartItem = phpData.find(element=> element.serviceId == clickedId);
@@ -30,33 +32,43 @@
     function renderCartItems(){
         cartItemsElement.innerHTML = "";
         cartContents.forEach((rowEntry)=>{
+            let priceTwoDecimal = (Math.round(rowEntry.servicePrice * 100) / 100).toFixed(2);
             cartItemsElement.innerHTML += `
                 <tr class="cart-row">
                     <th class="cart-item" scope="row">${rowEntry.serviceName}</th>
-                    <td class="cart-price">${rowEntry.servicePrice}</td>
+                    <td class="cart-price">${priceTwoDecimal}</td>
                     <td class="cart-qty">
-                        <input class="cart-quantity-input" type="number" min="1" value="${rowEntry.quantity}">
+                        <input onkeydown="return false" class="cart-quantity-input" type="number" value="${rowEntry.quantity}" min="1" onchange="changeQuantityInCart(${rowEntry.serviceId}, this.value)">
                     </td>
                     <td class="cart-remove">
-                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
+                        <button class="btn btn-danger btn-remove" type="button" onclick="removeCartItem(${rowEntry.serviceId})">REMOVE</button>
                 </td>
             `;
         });
     }
 
+    function renderSubtotal(){
+        let cartSubtotalElement = document.getElementById("cart-total-price");
+        let totalPrice = 0.00;
+        console.log(cartSubtotalElement);
+        cartContents.forEach((rowEntry)=>{
+            totalPrice += rowEntry.quantity * parseFloat(rowEntry.servicePrice);
+        });
+        let priceTwoDecimal = (Math.round(totalPrice * 100) / 100).toFixed(2);
+        cartSubtotalElement.innerHTML = `${priceTwoDecimal} CAD`; 
 
-    // let addCartItemButtons = document.getElementsByClassName('shop-item-button');
-    // // console.log(addCartItemButtons);
-    // for (let i = 0; i < addCartItemButtons.length; i++){
-    //     let button = addCartItemButtons[i];
-    //     button.addEventListener('click', function (event){
-    //         console.log('clicked add item to cart');
-    //     })
-    // }
+    }
 
+    function changeQuantityInCart(serviceId, quantity){
+        let cartItem = cartContents.find(element => element.serviceId == serviceId);
+        cartItem.quantity = quantity;
+        updateCart();
+        console.log(cartItem);
+        console.log(cartContents);
+    }
 
-function removeCartItem(){
-    console.log('clicked remove item from cart');
-}
+    function removeCartItem(serviceId){
+        
+    }
 
 

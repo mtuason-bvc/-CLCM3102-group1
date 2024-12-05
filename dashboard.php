@@ -57,23 +57,14 @@ checkIfLoggedIn();
                 </tr>
                 </thead>
                 <tbody class="cart-rows">
-
+                <!-- rendering here -->
                 </tbody>
-                <!-- </tr>  -->
-                    <!-- <th class="cart-item" scope="row">Linux Galore</th>
-                    <td class="cart-price">28.00 CAD</td>
-                    <td class="cart-qty">
-                        <input class="cart-quantity-input" type="number" value="2">
-                    </td>
-                    <td class="cart-remove">
-                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
-                    </td>
-                </tr>
-               -->
             </table>
             <div class="cart-total">
+                <h2>
                 <strong class="cart-total-title">Total</strong>
                 <span id="cart-total-price">0.00 CAD</span>
+                </h2>
             </div>
             <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
         </section>

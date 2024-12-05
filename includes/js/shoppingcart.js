@@ -1,44 +1,46 @@
 
 
     let allServicesJson = null;
-
-
-    let div = document.getElementById('php-data');
-    let phpData = JSON.parse(div.getAttribute('data-json'));
-    console.log(phpData); 
-    let servicesElement = document.getElementById("serviceRender");
- 
-    function renderProducts(){
-        phpData.forEach(element => {
-            servicesElement.innerHTML += `
-            <tr>
-            <th scope="row">${element.serviceName}</th>
-            <td>${element.serviceDescription}</td>
-            <td>${element.serviceCategory}</td>
-            <td>${element.servicePrice} ${element.serviceCurrency}</td>
-            <td> <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button> </td>
-            </tr>`;
-        });
-    }
-
-    // renderProducts();
+    let cartContents = [];
+    let cartItemsElement = document.querySelector(".cart-rows");
     
     console.log("Shopping cart js module loaded")
-    // let removeCartItemButtons = document.getElementsByClassName("btn-remove");
-    // console.log(removeCartItemButtons)
-    // for (let i = 0; i < removeCartItemButtons.length; i++){
-    //     let button = removeCartItemButtons[i];
-       
-    //     button.addEventListener("click", removeCartItem);
-        
-    // }
 
     function addToCart(clickedId){
-        // alert(clickedId);
-        phpData.forEach(element => {
-            if (element.serviceId == clickedId){
-                console.log(element);
-            }
+        if (cartContents.some((item)=> item.serviceId == clickedId)){
+            alert("Service already in cart");
+        }
+        else{
+            const cartItem = phpData.find(element=> element.serviceId == clickedId);
+            cartContents.push({
+                ...cartItem,
+                quantity: 1
+            });
+            console.log(cartContents);
+        }
+        updateCart();
+
+    }
+
+    function updateCart(){
+        renderCartItems();
+        renderSubtotal();
+    }
+
+    function renderCartItems(){
+        cartItemsElement.innerHTML = "";
+        cartContents.forEach((rowEntry)=>{
+            cartItemsElement.innerHTML += `
+                <tr class="cart-row">
+                    <th class="cart-item" scope="row">${rowEntry.serviceName}</th>
+                    <td class="cart-price">${rowEntry.servicePrice}</td>
+                    <td class="cart-qty">
+                        <input class="cart-quantity-input" type="number" min="1" value="${rowEntry.quantity}">
+                    </td>
+                    <td class="cart-remove">
+                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
+                </td>
+            `;
         });
     }
 

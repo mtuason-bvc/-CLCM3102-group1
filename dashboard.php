@@ -14,7 +14,7 @@ checkIfLoggedIn();
     <link rel="stylesheet" href="./css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="includes/js/shoppingcart.js" async></script>
+    <script src="includes/js/shoppingcart.js" defer></script>
     <link rel="icon" href="./images/image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -36,24 +36,13 @@ checkIfLoggedIn();
             $_SESSION['allServices'] = null;
 
         ?>
-        <div id="php-data" data-json='<?php echo $servicesJSON; ?>'></div>
 
-        <!-- <label for="service">Current available Services:</label>
-        <br>
-        <table class="table table-hover">
-        <thead>
-            <tr>
-            <th scope="col">Service Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price</th>
-            <th></th>
-            </tr>
-        </thead>
-        <tbody id="serviceRowRender">
-        </tbody>
-        </table>
-        </div> -->
+        <script>
+        // Embed JSON as a JavaScript variable
+        const phpData = <?php echo $servicesJSON; ?>;
+        console.log(phpData);
+        </script>
+
     <form>
     <section class="container content-section">
             <h2 class="section-header">CART</h2>
@@ -67,9 +56,11 @@ checkIfLoggedIn();
                 <th></th>
                 </tr>
                 </thead>
+                <tbody class="cart-rows">
 
-                <tr class="cart-row">
-                    <th class="cart-item" scope="row">Linux Galore</th>
+                </tbody>
+                <!-- </tr>  -->
+                    <!-- <th class="cart-item" scope="row">Linux Galore</th>
                     <td class="cart-price">28.00 CAD</td>
                     <td class="cart-qty">
                         <input class="cart-quantity-input" type="number" value="2">
@@ -78,20 +69,11 @@ checkIfLoggedIn();
                         <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
                     </td>
                 </tr>
-                <tr class="cart-row">
-                    <th class="cart-item" scope="row">Ubuntu micro server</th>
-                    <td class="cart-price">12.00 CAD</td>
-                    <td class="cart-qty">
-                        <input class="cart-quantity-input" type="number" value="3">
-                    </td>
-                    <td class="cart-remove">
-                        <button class="btn btn-danger btn-remove" type="button">REMOVE</button>
-                    </td>
-                </tr>
+               -->
             </table>
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">$39.97</span>
+                <span id="cart-total-price">0.00 CAD</span>
             </div>
             <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
         </section>

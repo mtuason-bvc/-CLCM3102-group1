@@ -9,28 +9,12 @@ function checkIfLoggedIn()
         $userName = htmlspecialchars($_SESSION["userUsername"]);
         echo ("<br>");
         echo ('<h2 class="form-success">Welcome ' . $userName . '</h2>');
-        echo ('<h4 class="form-success">Userid ' . $userId . '</h4>');
     } else {
         header("Location: login.php");
         die();
     }
 }
 
-
-function loadServicesDropdownMenu()
-{
-    if (isset($_SESSION['allServices'])) {
-        $services = $_SESSION['allServices'];
-        echo ('<form action="includes/php/transaction.inc.php" method="post">');
-        echo ('<select id="service" name="service">');
-        foreach ($services as $service) {
-            echo (' <option value="' . $service['serviceName'] . '">' . $service['serviceName'] . '</option>');
-        }
-        echo ('</select>');
-        echo ('<button class="btn btn-lg px-5" type="submit">submit</button>');
-
-    }
-}
 
 function loadAllServicesAvailable(){
     if (isset($_SESSION['allServices'])) {
@@ -63,6 +47,46 @@ function loadAllServicesAvailable(){
             <td> <button id="'.$service['serviceId'].'" class="btn btn-primary shop-item-button" type="button" onClick="addToCart(this.id)">ADD TO CART</button> </td>
             </tr>';
         }
+        echo "</tbody></table>";
+        
+    }
+}
+
+function loadAllPurchasesByLoggedUser(){
+    if (isset($_SESSION['userPurchaseHistory']) && isset($_SESSION['allServices'])) {     
+        $userPurchaseHistory = $_SESSION['userPurchaseHistory'];
+        $services = $_SESSION['allServices']; 
+
+        echo ('<label for="service">Purchase History:</label>');
+        echo ('<br>');
+        echo '
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Service Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Purchase Date</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        ';
+
+        foreach ($userPurchaseHistory as $purchase){
+            foreach ($services as $service) {
+                if ($purchase['serviceId'] == $service['serviceId']){
+                    $convertedPrice = number_format((float)$purchase['price'], 2, '.', '');
+                    echo '<tr >
+                    <th scope="row">'.$service['serviceName'].'</th>
+                    <td>'.$convertedPrice.' ' . $purchase['currency']. '</td>
+                    <td>'.$purchase['quantity'].'</td>
+                    <td>'.$purchase['date_created'].'</td>
+                    </tr>';
+                }
+            }
+        }
+
         echo "</tbody></table>";
         
     }

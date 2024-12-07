@@ -17,12 +17,21 @@ if (isset($_SESSION["userId"])) {
         if (isResultEmpty($result)){
             $errors["noServicesError"] = "There are no services in database. Please insert services.";
         }
-        if ($isError){
+        if ($errors){
             $_SESSION["dashboardErrors"] = $errors;
+            
         }
-        else{
+        else {
             $_SESSION['allServices'] = $result;
-
+            $userPurchaseHistory = getPayment ($pdo, $userId);
+            // print_r($userPurchaseHistory);
+             if(!isPurchaseHistoryEmpty($userPurchaseHistory)){
+                $_SESSION["userPurchaseHistory"] = $userPurchaseHistory;
+                // print_r($_SESSION["userPurchaseHistory"]);
+            }
+            else{
+                $_SESSION["userPurchaseHistory"] = null;
+            }
         }
 
     } catch (Exception $e){

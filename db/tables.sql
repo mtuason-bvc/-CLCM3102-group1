@@ -20,7 +20,7 @@ CREATE TABLE services(
     serviceCurrency varchar(30),
     date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (serviceId)
-)
+);
 
 INSERT INTO `services` VALUES 
 (1,'Ubuntu micro server','1gb ram, 1vCPU','IaaS',4.9900,'CAD','2024-11-21 13:08:01'),
@@ -43,5 +43,5 @@ CREATE TABLE payment(
     -- FOREIGN KEY (userId) REFERENCES users(id),
     -- FOREIGN KEY (serviceId) REFERENCES services(serviceId),
     PRIMARY KEY (paymentId)
-)
+);
 

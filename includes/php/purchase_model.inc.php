@@ -14,13 +14,3 @@
 
     }
 
-    function getPayment (object $pdo, string $serviceId, string $userId){
-        $query = "SELECT * FROM payment WHERE serviceId = :serviceId AND userId = :userId;";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(":serviceId", $serviceId);
-        $stmt->bindParam(":userId", $userId);
-        $stmt->execute();
-
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }

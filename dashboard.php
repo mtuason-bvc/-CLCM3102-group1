@@ -2,7 +2,6 @@
 require_once 'includes/php/config_session.inc.php';
 require_once 'includes/php/dashboard_view.inc.php';
 
-
 checkIfLoggedIn();
 ?>
 <!DOCTYPE html>
@@ -33,11 +32,16 @@ checkIfLoggedIn();
             require_once 'includes/php/dashboard.inc.php';
             loadAllServicesAvailable();
             $servicesJSON = json_encode($_SESSION['allServices']);
-            
-            $_SESSION['allServices'] = null;
-            if (isset($_SESSION["userId"])) {
-                $userId = $_SESSION["userId"];
-            }
+            $userPurchaseHistory = $_SESSION["userPurchaseHistory"];
+            // print_r($userPurchaseHistory);
+            // $userPurchaseHistoryJSON = null;
+            // if ($userPurchaseHistory != null){
+            //     $userPurchaseHistoryJSON = json_encode($_SESSION["userPurchaseHistory"]);
+            // }
+            // $_SESSION['allServices'] = null;
+            // if (isset($_SESSION["userId"])) {
+            //     $userId = $_SESSION["userId"];
+            // }
         ?>
 
         <script>
@@ -72,10 +76,16 @@ checkIfLoggedIn();
                 <span id="cart-total-price">0.00 CAD</span>
                 </h2>
             </div>
-            <button class="btn btn-primary btn-purchase" type="button" onclick="purchaseCartContents()">PURCHASE</button>
+            <button class="btn btn-primary btn-purchase"  onclick="purchaseCartContents()">PURCHASE</button>
       
         </section>
     </form>
+            <?php
+                if ($userPurchaseHistory != null){
+                    loadAllPurchasesByLoggedUser();
+                }
+            ?>
+  
 
 </body>
 

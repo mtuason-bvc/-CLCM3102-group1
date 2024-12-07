@@ -15,3 +15,17 @@ function isResultEmpty(bool|array $result){
     }
 
 }
+
+function isPurchaseHistoryEmpty(bool|array $purchase){
+
+    if (gettype($purchase) == "boolean"){
+        return true;
+    }
+    else if (count($purchase) < 1){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}

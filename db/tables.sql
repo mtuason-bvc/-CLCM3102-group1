@@ -45,3 +45,13 @@ CREATE TABLE payment(
     PRIMARY KEY (paymentId)
 );
 
+CREATE TABLE contact(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(100),
+    email VARCHAR(100) NOT NULL,
+    message TEXT,
+    date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+

@@ -2,9 +2,7 @@ name: deploy-to-ec2
 
 # Trigger deployment only on push to main branch
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch
 
 jobs:
   deploy:
@@ -40,4 +38,4 @@ jobs:
             cd /var/www/html/
             sudo git clone https://github.com/mtuason-bvc/2024-CLCM3102-group1
             sudo systemctl start apache2
-            sudo systemctl enable apache2
+            sudo systemctl status apache2

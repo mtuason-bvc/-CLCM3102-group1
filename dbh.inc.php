@@ -1,8 +1,8 @@
 <?php
 
-$dsn = "mysql:host=localhost;dbname=cloudtech";
-$dbusername = "root";
-$dbpassword = "root";
+$dsn = "mysql:host=3.226.165.0;dbname=cloudtech";
+$dbusername = "admin";
+$dbpassword = "SuperTopSecretMySQLdb.2024";
 
 try {
     //We use PDO as it is more secure and not prone to sql injection

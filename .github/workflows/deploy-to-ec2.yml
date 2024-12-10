@@ -1,6 +1,6 @@
 name: deploy-to-ec2
 
-# Trigger deployment only on push to main branch
+# Trigger manually
 on:
   workflow_dispatch
 
@@ -12,15 +12,6 @@ jobs:
     steps:
       - name: Checkout the files
         uses: actions/checkout@v2
-
-      - name: Deploy to Server 1
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
-          
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master

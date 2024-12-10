@@ -5,7 +5,8 @@ ini_set('session.use_strict_mode', 1);
 
 session_set_cookie_params([
     'lifetime' => 1800,
-    'domain' => 'localhost',
+    // 'domain' => 'localhost',
+    'domain' => 'd7dva1a5al2e9.cloudfront.net',
     'path' => '/',
     'secure' => true,
     'httponly' => true

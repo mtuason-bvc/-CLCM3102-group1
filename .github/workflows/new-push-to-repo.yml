@@ -1,4 +1,4 @@
-name: deploy-to-ec2
+name: new-push-to-repo
 
 # Trigger deployment only on push to main branch
 on:

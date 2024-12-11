@@ -70,7 +70,7 @@ body{
 .home{
     min-height: 75vh;
     width: 100vw;
-    background-image: url(../images/img3.jpg);
+    background-image: url(../images/cloud.png);
     background-size: cover;
     display: flex;
     align-items: center;
@@ -529,5 +529,4 @@ body{
 }
 
 
-/* form styling */
 

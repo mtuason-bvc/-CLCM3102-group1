@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CloudTech Company Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/careers.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -18,7 +19,6 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <script src="./js/main.js"></script>
-
 </head>
 <body>
     <header class="header">
@@ -38,46 +38,127 @@
             </ul>
         </nav>
     </header>
-
-    <section id="home" class="home">
-        <h2>Drop your Inquiries</h2>
+    <section id="home" class="home">   
     </section>
 
-    <section id="career-heading" class="career-heading">
-        <h1 class="heading">Inquiry</h1>
-        <p>Easily submit your inquiries for quick responses from our team.</p>
-    </section>
-
-
-    
-     <div class="career">
-        <div class="career-form">
-            <form action="./careers.php" method="POST" enctype="multipart/form-data" class="career-form-container">
-                <input type="text" name="name" placeholder="Name" class="career-form-txt" required>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="Contact number" maxlength="10" class="career-form-phone">
-                <input type="email" name="email" placeholder="Email" class="career-form-email" required>
-                <textarea placeholder="Other Details" name="details" class="career-form-txtarea" required></textarea>
-                
-                <div class="form-group">
-                    <label for="date">Date:</label>
-                    <input type="date" name="date" class="career-form-date form-control" required>
+    <div class="max-w-4xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg border border-gray-300 mb-10">
+        <h1 class="text-3xl font-bold text-center text-blue-700 mb-6">Inquiry Form</h1>
+        <p class="text-center text-gray-600 mb-8">Please fill out the form below to get in touch with us.</p>
+        <form action="/submit-inquiry" method="post" class="space-y-6">
+            <!-- Section: Personal Details -->
+            <div class="space-y-4 border-b pb-6">
+                <div>
+                    <label for="full-name" class="block text-xl font-medium text-gray-800">Full Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="full-name" name="full-name" placeholder="John Doe" required
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                 </div>
-
-                <div class="form-group">
-                    <label for="time">Time:</label>
-                    <input type="time" name="time" class="career-form-time form-control" required>
+                <div>
+                    <label for="email" class="block text-xl font-medium text-gray-800">Email Address <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@example.com" required
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                 </div>
-
-                <div class="file">
-                    <h2 class="name">Upload your file here for faster cloud support!</h2>
-                    <input class="upload" type="file" name="fileToUpload" accept=".doc,.docx,.pdf"><br><br><br>
+                <div>
+                    <label for="phone" class="block text-xl font-medium text-gray-800">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 555-5555"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                 </div>
-                
-                <input type="submit" value="Submit" name="submit" class="career-form-btn">
-            </form>
-        </div>
+            </div>
+
+            <!-- Section: Company Details -->
+            <div class="space-y-4 border-b pb-6">
+                <div>
+                    <label for="company-name" class="block text-xl font-medium text-gray-800">Company Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="company-name" name="company-name" placeholder="Your Company Name" required
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="industry" class="block text-xl font-medium text-gray-800">Industry</label>
+                    <select id="industry" name="industry"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" selected disabled>Choose an industry</option>
+                        <option value="it">IT</option>
+                        <option value="finance">Finance</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="retail">Retail</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="company-size" class="block text-xl font-medium text-gray-800">Company Size</label>
+                    <select id="company-size" name="company-size"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" selected disabled>Choose company size</option>
+                        <option value="1-10">1-10</option>
+                        <option value="11-50">11-50</option>
+                        <option value="51-200">51-200</option>
+                        <option value="201-500">201-500</option>
+                        <option value="501+">501+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Section: Service Interests -->
+            <div class="space-y-4 border-b pb-6">
+                <label class="block text-xl font-medium text-gray-800">Service Interests</label>
+                <div class="grid grid-cols-2 gap-4 mt-2">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="services" value="cloud-storage"
+                            class="w-6 h-6 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <span class="ml-3 text-gray-700">Cloud Storage</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="services" value="cloud-computing"
+                            class="w-6 h-6 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <span class="ml-3 text-gray-700">Cloud Computing</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="services" value="migration"
+                            class="w-6 h-6 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <span class="ml-3 text-gray-700">Migration to the Cloud</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="services" value="security"
+                            class="w-6 h-6 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <span class="ml-3 text-gray-700">Security and Compliance</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="services" value="optimization"
+                            class="w-6 h-6 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <span class="ml-3 text-gray-700">Cost Optimization</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Section: Additional Information -->
+            <div class="space-y-4">
+                <div>
+                    <label for="additional-info" class="block text-xl font-medium text-gray-800">Additional Information</label>
+                    <textarea id="additional-info" name="additional-info" rows="5" placeholder="Describe your requirements or questions here..."
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xl font-medium text-gray-800">Preferred Contact Method</label>
+                    <div class="flex gap-4 mt-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="contact-method" value="email" checked
+                                class="w-6 h-6 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-gray-700">Email</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="contact-method" value="phone"
+                                class="w-6 h-6 text-blue-600 border-gray-300 focus:ring-blue-500">
+                            <span class="ml-3 text-gray-700">Phone</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit"
+                class="w-full py-4 px-5 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Submit Inquiry
+            </button>
+        </form>
     </div>
-
     <div class="footer">
         <div class="footer-top">
             <div class="container">
@@ -85,26 +166,26 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>About Us</h4>
                         <ul>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#home">Home</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#about">About us</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#service">Our services</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#home">Terms & condition</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#home">Privacy policy</a></li>
+                            <li><i class="fas fa-home"></i> <a href="#">Home</a></li>
+                            <li><i class="fas fa-info-circle"></i> <a href="#about">About us</a></li>
+                            <li><i class="fas fa-briefcase"></i> <a href="#service">Our services</a></li>
+                            <li><i class="fas fa-file-alt"></i> <a href="#">Terms & Conditions</a></li>
+                            <li><i class="fas fa-lock"></i> <a href="#">Privacy Policy</a></li>
                         </ul>
                     </div>
-
+    
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#portfolio">Portfolio</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#team">Team</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="careers.html">Career</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#contact">Contact</a></li>
-                            <li><i class="ion-ios-arrow-forward"></i> <a href="index.html#faq">FAQ</a></li>
+                            <li><i class="fas fa-folder"></i> <a href="#portfolio">Portfolio</a></li>
+                            <li><i class="fas fa-users"></i> <a href="#team">Team</a></li>
+                            <li><i class="fas fa-user-tie"></i> <a href="careers.html">Career</a></li>
+                            <li><i class="fas fa-envelope"></i> <a href="#contact">Contact</a></li>
+                            <li><i class="fas fa-question-circle"></i> <a href="#faq">FAQ</a></li>
                         </ul>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+    
+                    <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Contact Us</h4>
                         <p>
                             3241 Center Street<br>
@@ -113,45 +194,39 @@
                             <strong>Phone:</strong> +1400-400-7000<br>
                             <strong>Email:</strong> cloudTechinfo@gmail.com<br>
                         </p>
-                    
-                         <div class="social-links">
-                            <a href="https://www.facebook.com/"><i class="ion-logo-facebook"></i></a>
-                            <a href="https://twitter.com/login?lang=en"><i class="ion-logo-twitter"></i></a>
-                            <a href="https://www.linkedin.com/"><i class="ion-logo-linkedin"></i></a>
-                            <a href="https://www.instagram.com/"><i class="ion-logo-instagram"></i></a>
-                            <a href="https://accounts.google.com/servicelogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="ion-logo-googleplus"></i></a>
+    
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/" class="facebook"><i class="fab fa-facebook-f"> </i></a>
+                            <a href="https://twitter.com/" class="twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/" class="instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://accounts.google.com/" class="google-plus"><i class="fab fa-google"></i></a>
                         </div>
                     </div>
-
+    
                     <div class="col-lg-3 col-md-6 footer-newsletter">
                         <h4>Subscription</h4>
-                        <p>With Our Skills Put Together, You Get An Ensemble Capable Of Doing Anything And Everything Your Brand Needs. Subscribe Here To Get Our Latest Updates.</p>
+                        <p>Subscribe here to get the latest updates about our services and offerings delivered straight to your inbox.</p>
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                            <div class="newsletter">
+                                <input type="email" name="email"><input type="submit"  value="Subscribe">
+                
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
+    
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
-                    Copyright &copy; 2024 Cloudtech Company. All Rights Reserved.
+                    Copyright &copy; 2021 IT Company Website. All Rights Reserved.
                 </div>
             </div>
         </div>
     </div>
 
-    <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery/jquery-migrate.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
 </body>
 </html>
